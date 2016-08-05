@@ -9,4 +9,17 @@ class User < ActiveRecord::Base
 
   validates :username, :email, uniqueness: true
 
+  # users.password_hash in the database is a :string
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  def authenticate(password)
+    self.password == password
+  end
 end

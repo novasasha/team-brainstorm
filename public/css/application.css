@@ -1,0 +1,38 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+header {
+  margin: 20px auto;
+  width: 600px;
+  height: 80px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+ul {
+  padding: 20px 0;
+}
+li {
+  display: inline-block;
+  padding-right: 25px;
+}
