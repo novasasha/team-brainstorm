@@ -1,0 +1,12 @@
+<h1>SIGN UP HERE OMG</h1>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+<form method='post' action='/users'>
+  Username: <input type='text' name='user[username]'><br>
+  Email: <input type='email' name='user[email]'><br>
+  Password: <input type='password' name='user[password]'><br>
+  <input type='submit' value='Register'>
+</form>
