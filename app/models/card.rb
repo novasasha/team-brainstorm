@@ -10,4 +10,12 @@ class Card < ActiveRecord::Base
     end
     guesses
   end
+
+  def check_card(guess)
+    if self.answer == guess
+      return 1
+    else
+      return 0
+    end
+  end
 end
