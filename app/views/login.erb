@@ -1,0 +1,11 @@
+<h1>Login here and answer questions you nerd!</h1>
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+<form method='post' action='/'>
+  Username: <input type='text' name='user[username]'>
+  Password: <input type='password' name='user[password]'>
+  <input type='submit' value='Log In'>
+</form>
