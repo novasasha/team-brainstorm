@@ -1,0 +1,7 @@
+<h1> <%= @topic %> </h1>
+<form action=<%="/games/#{@game_id}/guesses"%> method="post">
+  <input type="hidden" name="card_id" value="<%= @current_card_id %>">
+  <label> <%= @question %></label><br>
+  <input type="text" name="guess" placeholder="Your Answer"><br>
+  <input type="submit" value="Submit Answer">
+</form>

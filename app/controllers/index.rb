@@ -1,5 +1,5 @@
 get '/' do
-  erb :index
+  erb :'decks'
 end
 
 get '/login' do

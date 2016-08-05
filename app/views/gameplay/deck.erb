@@ -1,0 +1,7 @@
+<h1> Select a Topic </h1>
+
+<ul>
+  <% @decks.each do |deck| %>
+    <li><a href="/decks/<%=deck.id%>/cards"><%= deck.topic %></a></li>
+  <% end %>
+</ul>
