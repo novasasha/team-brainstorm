@@ -12,3 +12,11 @@ post '/users' do
     erb :'/users/new'
   end
 end
+
+get '/users/:id' do
+  if logged_in?
+    erb :'/users/show'
+  else
+    redirect "/login"
+  end
+end
