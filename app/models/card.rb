@@ -3,12 +3,13 @@ class Card < ActiveRecord::Base
   belongs_to :deck
   has_many :guesses
 
-  def get_guesses
-    guesses = self.guesses.to_a
-    guesses.map! do |guess|
+  def get_guesses(game_id)
+    guesses = self.guesses
+    guesses_2 = guesses.where(game_id: game_id).to_a
+    guesses_2.map! do |guess|
       guess.correct
     end
-    guesses
+    guesses_2
   end
 
   def check_card(guess)

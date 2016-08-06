@@ -6,7 +6,7 @@ post '/users' do
   p params
   @user = User.new(params['user'])
   if @user.save
-    redirect "/"
+    redirect "/login"
   else
     @errors = @user.errors.full_messages
     erb :'/users/new'
@@ -19,4 +19,9 @@ get '/users/:id' do
   else
     redirect "/login"
   end
+end
+
+get '/users/:id/stats' do
+
+  erb :"/users/stats"
 end

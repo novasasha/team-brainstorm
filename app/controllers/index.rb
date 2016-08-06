@@ -1,5 +1,5 @@
 get '/' do
-  erb :'decks'
+  erb :'users/new'
 end
 
 get '/login' do
@@ -10,7 +10,7 @@ post '/' do
   @user = User.find_by(username: params['user'][:username])
   if @user && @user.authenticate(params['user'][:password])
     session[:user_id] = @user.id
-    redirect '/'
+    erb :"users/show"
   else
     @errors = ["Something went wrong, just like it always does"]
     erb :login
