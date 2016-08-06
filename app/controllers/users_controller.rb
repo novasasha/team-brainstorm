@@ -6,7 +6,7 @@ post '/users' do
   p params
   @user = User.new(params['user'])
   if @user.save
-    redirect "/"
+    redirect "/login"
   else
     @errors = @user.errors.full_messages
     erb :'/users/new'
@@ -21,8 +21,7 @@ get '/users/:id' do
   end
 end
 
-get 'users/:id/stats' do
-  @games = Game.where(user_id: params[:id])
+get '/users/:id/stats' do
 
-  erb :"/users/#{params[:id]}/stats"
+  erb :"/users/stats"
 end

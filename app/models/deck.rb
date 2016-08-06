@@ -5,11 +5,21 @@ class Deck < ActiveRecord::Base
 
   validates :topic, presence: true, uniqueness: true
 
-  def get_card
-    @cards_left = self.cards.to_a
-    @cards_left.delete_if do |card|
-      card.get_guesses.include?(1)
+  def get_card(game_id)
+    cards_left = self.cards.to_a
+    cards_left.delete_if do |card|
+      card.get_guesses(game_id).include?(1)
     end
-    @cards_left.sample
+    cards_left.sample
   end
+
+  def card_ids
+    all_cards = Card.where(deck_id: self.id)
+    ids =[]
+      all_cards.each do |card|
+        ids << card.id
+      end
+    ids
+  end
+
 end

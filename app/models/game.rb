@@ -5,10 +5,18 @@ class Game < ActiveRecord::Base
 
   validates :user_id, :deck_id, presence: true
 
-def first_guess
-  all_cards = Card.where(deck_id)
-  total_guesses = Guess.where(game_id: self.id, card_id: ).count
-end
-##find all guesses that belong to a card of a deck
-  #if the card only has less than 2 guesses then it is first guess
+
+  def first_guess
+    counter = 0
+
+    self.deck.card_ids.each do |card_id|
+      if Guess.where("card_id = ? AND game_id = ?", "#{card_id}", "#{self.id}").count < 3
+        counter += 1
+      end
+    end
+    counter
+  end
+
+
+
 end

@@ -6,13 +6,13 @@
     <th> Total guesses </th>
     <th> Date played </th>
   </tr>
-
+  <% @games = Game.where(user_id: session[:user_id]) %>
   <% @games.each do |game| %>
   <tr>
     <td> <%= Deck.find(game.deck_id).topic %></td>
     <td> <%= Card.where(deck_id: game.deck_id).count %> </td>
-    <td> <%= Guess.where(game_id: game.id, card_id: ) %> </td>
-    <td> <%= Guess.where(game_id: game.id).count %>  </td>
+    <td> <%= game.first_guess %> </td>
+    <td> <%= Guess.where(game_id: game.id).count - Card.where(deck_id: game.deck_id).count  %>  </td>
     <td> <%= game.created_at %> </td>
   </tr>
   <% end %>
