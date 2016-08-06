@@ -20,3 +20,9 @@ get '/users/:id' do
     redirect "/login"
   end
 end
+
+get 'users/:id/stats' do
+  @games = Game.where(user_id: params[:id])
+
+  erb :"/users/#{params[:id]}/stats"
+end
