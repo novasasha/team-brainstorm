@@ -6,35 +6,56 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title>Brainstorm</title>
+  <title>Brainstorm: Flashcards</title>
 </head>
+
 <header>
-    <h1 class="left">Brainstorm</h1>
-    <ul class="right">
-      <li><a href="/">Home</a></li>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <h3 class="panel-title pull-left">Brainstorm: Flashcards</h3>
+  <div class="btn-group btn-group-md pull-right" role="group">
+      <button type="button" class="btn btn-default">
+        <a href="/">Home</a>
+      </button>
       <% if current_user %>
-        <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
-        <li>
-          <a href="/logout">Logout</a>
-        </li>
+            <a href="/users/<%= current_user.id %>">
+              <button type="button" class="btn btn-default"><%= current_user.username %>'s profile</a>
+              </button>
+            <button type="button" class="btn btn-default"><a href="/logout">Logout</a></button>
       <% else %>
-        <li><a href="/users/new">Register</a></li>
-        <li><a href="/login">Login</a></li>
+      <button type="button" class="btn btn-default">
+       <a href="/users/new">Register</a>
+      </button>
+      <button type="button" class="btn btn-default">
+       <a href="/login">Login</a>
+      </button>
+      <div class="clearfix"></div>
+    </div>
       <% end %>
-    </ul>
-  </header>
+    </div>
+  </div>
+  </div>
+</header>
+
 <body>
   <main class="container">
+  <div class="jumbotron">
   <%= yield %>
+  </div>
   </main>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" ></script>
+
 </body>
 </html>
+
