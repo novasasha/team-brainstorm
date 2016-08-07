@@ -17,11 +17,6 @@
   </tr>
   <% end %>
 </table>
-<<<<<<< HEAD
-<form action="/users/<%= session[:user_id] %>" method="get">
-=======
-
-<form action="/users/<%= @games.first.user_id %>" method="get">
->>>>>>> master
+  <form action="/users/<%= session[:user_id] %>" method="get">
   <button type="Submit"> Back to Profile </button>
 </form>
