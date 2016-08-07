@@ -1,7 +1,10 @@
 <h1> Select a Topic </h1>
 
 <ul>
+	<li><a href="/pto">Post, Times or Onion?</a></li>
   <% @decks.each do |deck| %>
-    <li><a href="/games/<%=deck.id%>"><%= deck.topic %></a></li>
+  	<% if deck.topic != "Post, Times or Onion" %>
+    	<li><a href=<%="/games/#{deck.id}"%>><%= deck.topic %></a></li>
+    <% end %>
   <% end %>
 </ul>

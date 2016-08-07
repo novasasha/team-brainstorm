@@ -12,11 +12,11 @@
     <td> <%= Deck.find(game.deck_id).topic %></td>
     <td> <%= Card.where(deck_id: game.deck_id).count %> </td>
     <td> <%= game.first_guess %> </td>
-    <td> <%= Guess.where(game_id: game.id).count - Card.where(deck_id: game.deck_id).count  %>  </td>
+    <td> <%= Guess.where(game_id: game.id).count%>  </td>
     <td> <%= game.created_at %> </td>
   </tr>
   <% end %>
 </table>
-<form action="/users/<%= @games.first.user_id %>" method="get">
+<form action="/users/<%= session[:user_id] %>" method="get">
   <button type="Submit"> Back to Profile </button>
 </form>
