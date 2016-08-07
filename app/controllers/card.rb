@@ -1,7 +1,7 @@
 get "/decks/:deck_id/cards" do
-@deck = Deck.find(params[:deck_id])
-@cards = Card.where(deck_id: params[:deck_id])
-@game_id = Game.all.last.id
+  @deck = Deck.find(params[:deck_id])
+  @cards = Card.where(deck_id: params[:deck_id])
+  @game_id = Game.all.last.id
   if @deck.get_card(@game_id)
     @current_card = @deck.get_card(@game_id)
     @current_card_id = @current_card.id

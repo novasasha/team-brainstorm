@@ -3,7 +3,7 @@ class Deck < ActiveRecord::Base
   has_many :games
   has_many :users, through: :games
 
-  validates :topic, presence: true, uniqueness: true
+  validates :topic, presence: true
 
   def get_card(game_id)
     cards_left = self.cards.to_a
