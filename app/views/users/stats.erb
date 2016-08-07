@@ -13,7 +13,7 @@
     <td> <%= Card.where(deck_id: game.deck_id).count %> </td>
     <td> <%= game.first_guess %> </td>
     <td> <%= Guess.where(game_id: game.id).count%>  </td>
-    <td> <%= game.created_at %> </td>
+    <td> <%= game.created_at.strftime("%m/%d/%Y") %> </td>
   </tr>
   <% end %>
 </table>
