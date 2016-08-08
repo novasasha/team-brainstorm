@@ -1,4 +1,12 @@
 <h1> <%= @topic %> </h1>
+<% if @topic == "Post, Times or Onion" %>
+	<ul>
+	<% @cards.each do |card| %>
+		<li><%= card.question %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <form action="/games/<%=@game_id%>/guesses" method="post">
   <input type="hidden" name="card_id" value="<%= @current_card_id %>">
   <label> <%= @question %></label><br>
